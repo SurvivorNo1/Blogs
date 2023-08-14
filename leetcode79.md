@@ -96,6 +96,7 @@ int main() {
 ##Solution (My Approach)
 
 ```c++
+
 class Solution
 {
 public:
@@ -106,14 +107,6 @@ public:
     int **sign;
     string t;
     vector<vector<char> > map;
-    void clear(){
-        // 使用双重循环赋值为0
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                sign[i][j] = 0;
-            }
-        }
-    }
     void find(int i, int j, int cnt)
     {
         if (isexist)
@@ -164,7 +157,6 @@ public:
         {
             for (int j = 0; j < n; j++)
             {
-                clear();
                 if (!isexist)
                 {
                     find(i, j, 0);
