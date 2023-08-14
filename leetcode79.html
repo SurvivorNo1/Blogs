@@ -1,0 +1,686 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>leetcode79</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='回溯backtracking'><span>回溯(Backtracking)</span></h1><h2 id='introduction'><span>Introduction</span></h2><p><span>回溯（Backtracking）是一种解决问题的算法思想，通常用于解决组合、排列、子集和搜索等问题。它通过递归地尝试所有可能的选择，然后回溯到上一步继续尝试其他选择，直到找到问题的解或确定无解。</span></p><p><span>回溯算法的一般步骤如下：</span></p><ol start='' ><li><p><strong><span>选择</span></strong><span>：从问题的选择列表中选择一个选项。</span></p></li><li><p><strong><span>执行</span></strong><span>：尝试选择，进入下一个步骤。</span></p></li><li><p><strong><span>回溯</span></strong><span>：如果在当前选择下无法找到解，或者达到终止条件，回溯到上一步。</span></p></li><li><p><strong><span>撤销选择</span></strong><span>：取消选择，尝试其他选择。</span></p></li></ol><p><span>回溯通常适用于指数级别的问题，因为它会尝试所有可能的情况。回溯算法可以使用递归来实现，每次递归时传递参数，记录当前状态，然后在递归结束后恢复状态。</span></p><p><span>一个经典的回溯问题是排列问题，其中要求列出给定一组数的所有排列。以下是一个简单的排列问题的回溯算法示例：</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="cpp" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="cpp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 44px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 36px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>34</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -36px; width: 36px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;iostream&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;vector&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">void</span> <span class="cm-def">backtrack</span>(<span class="cm-variable">std::vector</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">int</span><span class="cm-operator">&gt;&amp;</span> <span class="cm-variable">nums</span>, <span class="cm-variable">std::vector</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">int</span><span class="cm-operator">&gt;&amp;</span> <span class="cm-variable">current</span>, <span class="cm-variable">std::vector</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">bool</span><span class="cm-operator">&gt;&amp;</span> <span class="cm-variable">used</span>) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">current</span>.<span class="cm-variable">size</span>() <span class="cm-operator">==</span> <span class="cm-variable">nums</span>.<span class="cm-variable">size</span>()) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-variable-3">int</span> <span class="cm-variable">num</span> : <span class="cm-variable">current</span>) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">num</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">" "</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-variable-3">int</span> <span class="cm-variable">i</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>; <span class="cm-variable">i</span> <span class="cm-operator">&lt;</span> <span class="cm-variable">nums</span>.<span class="cm-variable">size</span>(); <span class="cm-operator">++</span><span class="cm-variable">i</span>) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-operator">!</span><span class="cm-variable">used</span>[<span class="cm-variable">i</span>]) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">used</span>[<span class="cm-variable">i</span>] <span class="cm-operator">=</span> <span class="cm-atom">true</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">current</span>.<span class="cm-variable">push_back</span>(<span class="cm-variable">nums</span>[<span class="cm-variable">i</span>]);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">17</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">backtrack</span>(<span class="cm-variable">nums</span>, <span class="cm-variable">current</span>, <span class="cm-variable">used</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">18</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">current</span>.<span class="cm-variable">pop_back</span>();</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">19</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">used</span>[<span class="cm-variable">i</span>] <span class="cm-operator">=</span> <span class="cm-atom">false</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">20</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">21</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">22</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">23</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">24</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">void</span> <span class="cm-def">generatePermutations</span>(<span class="cm-variable">std::vector</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">int</span><span class="cm-operator">&gt;&amp;</span> <span class="cm-variable">nums</span>) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">25</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::vector</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">int</span><span class="cm-operator">&gt;</span> <span class="cm-variable">current</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">26</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::vector</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">bool</span><span class="cm-operator">&gt;</span> <span class="cm-variable">used</span>(<span class="cm-variable">nums</span>.<span class="cm-variable">size</span>(), <span class="cm-atom">false</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">27</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">backtrack</span>(<span class="cm-variable">nums</span>, <span class="cm-variable">current</span>, <span class="cm-variable">used</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">28</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">29</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;" class=""><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">30</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>() {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">31</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">std::vector</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">int</span><span class="cm-operator">&gt;</span> <span class="cm-variable">nums</span> <span class="cm-operator">=</span> {<span class="cm-number">1</span>, <span class="cm-number">2</span>, <span class="cm-number">3</span>};</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">32</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">generatePermutations</span>(<span class="cm-variable">nums</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">33</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">34</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 783px;"></div><div class="CodeMirror-gutters" style="height: 783px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 35px;"></div></div></div></div></pre><p><span>在这个示例中，</span><code>generatePermutations</code><span> 函数使用回溯来生成给定数字列表的所有排列。对于更复杂的问题，你可以根据问题的性质和约束设计相应的回溯算法。</span></p><h2 id='problem'><span>Problem</span></h2><p><span>给定一个 </span><code>m x n</code><span> 二维字符网格 </span><code>board</code><span> 和一个字符串单词 </span><code>word</code><span> 。如果 </span><code>word</code><span> 存在于网格中，返回 </span><code>true</code><span> ；否则，返回 </span><code>false</code><span> 。</span></p><p><span>单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。</span></p><p><span>例如，在下面的 3×4 的矩阵中包含单词 &quot;ABCCED&quot;（单词中的字母已标出）。</span></p><p><img src="data:image/jpeg;base64,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"></p><p><span> </span></p><p><strong><span>示例 1：</span></strong></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 36px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>2</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -28px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 19px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">输入：board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"</span></pre></div><div style="position: relative;" class=""><div class="CodeMirror-gutter-wrapper" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 19px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">输出：true</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 46px;"></div><div class="CodeMirror-gutters" style="height: 46px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre><p><strong><span>示例 2：</span></strong></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 36px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>2</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -28px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 19px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">输入：board = [["a","b"],["c","d"]], word = "abcd"</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 19px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">输出：false</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 46px;"></div><div class="CodeMirror-gutters" style="height: 46px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre><p><span> </span></p><p><strong><span>提示：</span></strong></p><ul><li><p><code>m == board.length</code></p></li><li><p><code>n = board[i].length</code></p></li><li><p><code>1 &lt;= m, n &lt;= 6</code></p></li><li><p><code>1 &lt;= word.length &lt;= 15</code></p></li><li><p><code>board</code><span>和</span><code>word</code><span>仅由大小写英文字母组成</span></p></li></ul><h2 id='solution-my-approach'><span>Solution (My Approach)</span></h2><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="c++" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="c++"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 44px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 36px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>83</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -36px; width: 36px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">class</span> <span class="cm-def">Solution</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span>:</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">bool</span> <span class="cm-variable">isexist</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">m</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">len</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable">n</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">int</span> <span class="cm-variable-3">**</span><span class="cm-variable">sign</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">string</span> <span class="cm-variable">t</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">vector</span><span class="cm-operator">&lt;</span><span class="cm-variable">vector</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">char</span><span class="cm-operator">&gt;</span> <span class="cm-operator">&gt;</span> <span class="cm-variable">map</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">void</span> <span class="cm-variable">clear</span>(){</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 使用双重循环赋值为0</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-variable-3">int</span> <span class="cm-variable">i</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>; <span class="cm-variable">i</span> <span class="cm-operator">&lt;</span> <span class="cm-variable">m</span>; <span class="cm-operator">++</span><span class="cm-variable">i</span>) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-variable-3">int</span> <span class="cm-variable">j</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>; <span class="cm-variable">j</span> <span class="cm-operator">&lt;</span> <span class="cm-variable">n</span>; <span class="cm-operator">++</span><span class="cm-variable">j</span>) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">sign</span>[<span class="cm-variable">i</span>][<span class="cm-variable">j</span>] <span class="cm-operator">=</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">17</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">18</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">19</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">void</span> <span class="cm-variable">find</span>(<span class="cm-variable-3">int</span> <span class="cm-variable">i</span>, <span class="cm-variable-3">int</span> <span class="cm-variable">j</span>, <span class="cm-variable-3">int</span> <span class="cm-variable">cnt</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">20</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">21</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">isexist</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">22</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">23</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">24</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">25</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">cnt</span> <span class="cm-operator">==</span> <span class="cm-variable">len</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">26</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">27</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">isexist</span> <span class="cm-operator">=</span> <span class="cm-atom">true</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">28</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">29</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">30</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">i</span> <span class="cm-operator">&gt;=</span> <span class="cm-number">0</span> <span class="cm-operator">&amp;&amp;</span> <span class="cm-variable">j</span> <span class="cm-operator">&gt;=</span> <span class="cm-number">0</span> <span class="cm-operator">&amp;&amp;</span> <span class="cm-variable">i</span> <span class="cm-operator">&lt;</span> <span class="cm-variable">m</span> <span class="cm-operator">&amp;&amp;</span> <span class="cm-variable">j</span> <span class="cm-operator">&lt;</span> <span class="cm-variable">n</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">31</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">32</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">map</span>[<span class="cm-variable">i</span>][<span class="cm-variable">j</span>] <span class="cm-operator">==</span> <span class="cm-variable">t</span>[<span class="cm-variable">cnt</span>]<span class="cm-operator">&amp;&amp;!</span><span class="cm-variable">sign</span>[<span class="cm-variable">i</span>][<span class="cm-variable">j</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">33</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">34</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">cnt</span><span class="cm-operator">++</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">35</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">sign</span>[<span class="cm-variable">i</span>][<span class="cm-variable">j</span>] <span class="cm-operator">=</span> <span class="cm-number">1</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">36</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">cnt</span> <span class="cm-operator">==</span> <span class="cm-variable">len</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">37</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">38</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">isexist</span><span class="cm-operator">=</span><span class="cm-number">1</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">39</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">40</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">else</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">41</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">42</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">find</span>(<span class="cm-variable">i</span>, <span class="cm-variable">j</span> <span class="cm-operator">+</span> <span class="cm-number">1</span>, <span class="cm-variable">cnt</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">43</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">find</span>(<span class="cm-variable">i</span> <span class="cm-operator">+</span> <span class="cm-number">1</span>, <span class="cm-variable">j</span>, <span class="cm-variable">cnt</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">44</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">find</span>(<span class="cm-variable">i</span>, <span class="cm-variable">j</span> <span class="cm-operator">-</span> <span class="cm-number">1</span>, <span class="cm-variable">cnt</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">45</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">find</span>(<span class="cm-variable">i</span> <span class="cm-operator">-</span> <span class="cm-number">1</span>, <span class="cm-variable">j</span>, <span class="cm-variable">cnt</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">46</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">47</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">sign</span>[<span class="cm-variable">i</span>][<span class="cm-variable">j</span>] <span class="cm-operator">=</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">48</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">49</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">50</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">51</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">52</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-3">bool</span> <span class="cm-variable">exist</span>(<span class="cm-variable">vector</span><span class="cm-operator">&lt;</span><span class="cm-variable">vector</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">char</span><span class="cm-operator">&gt;</span> <span class="cm-operator">&gt;</span> <span class="cm-operator">&amp;</span><span class="cm-variable">board</span>, <span class="cm-variable">string</span> <span class="cm-variable">word</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">53</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">54</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">map</span> <span class="cm-operator">=</span> <span class="cm-variable">board</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">55</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">t</span> <span class="cm-operator">=</span> <span class="cm-variable">word</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">56</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">m</span> <span class="cm-operator">=</span> <span class="cm-variable">board</span>.<span class="cm-variable">size</span>();</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">57</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">n</span> <span class="cm-operator">=</span> <span class="cm-variable">m</span> <span class="cm-operator">&gt;</span> <span class="cm-number">0</span> <span class="cm-operator">?</span> <span class="cm-variable">board</span>[<span class="cm-number">0</span>].<span class="cm-variable">size</span>() : <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">58</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">len</span> <span class="cm-operator">=</span> <span class="cm-variable">word</span>.<span class="cm-variable">size</span>();</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">59</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">sign</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable-3">int</span> <span class="cm-variable-3">*</span>[<span class="cm-variable">m</span>];</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">60</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-variable-3">int</span> <span class="cm-variable">i</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>; <span class="cm-variable">i</span> <span class="cm-operator">&lt;</span> <span class="cm-variable">m</span>; <span class="cm-operator">++</span><span class="cm-variable">i</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">61</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">62</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">sign</span>[<span class="cm-variable">i</span>] <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable-3">int</span>[<span class="cm-variable">n</span>]{<span class="cm-number">0</span>};</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">63</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">64</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">65</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-variable-3">int</span> <span class="cm-variable">i</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>; <span class="cm-variable">i</span> <span class="cm-operator">&lt;</span> <span class="cm-variable">m</span>; <span class="cm-variable">i</span><span class="cm-operator">++</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">66</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">67</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-variable-3">int</span> <span class="cm-variable">j</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>; <span class="cm-variable">j</span> <span class="cm-operator">&lt;</span> <span class="cm-variable">n</span>; <span class="cm-variable">j</span><span class="cm-operator">++</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">68</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">69</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">clear</span>();</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">70</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-operator">!</span><span class="cm-variable">isexist</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">71</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">72</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">find</span>(<span class="cm-variable">i</span>, <span class="cm-variable">j</span>, <span class="cm-number">0</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">73</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">endl</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">74</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">75</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">else</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">76</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">77</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">break</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">78</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">79</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">80</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">81</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">isexist</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">82</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">83</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">};</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 1912px;"></div><div class="CodeMirror-gutters" style="height: 1912px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 35px;"></div></div></div></div></pre><p>&nbsp;</p></div></div>
+</body>
+</html>
